@@ -27,7 +27,6 @@ function bd09togcj02(bd_lon, bd_lat) {
     return [gg_lng, gg_lat]
 }
 
-
 /**
  * 火星坐标系 (GCJ-02) 与百度坐标系 (BD-09) 的转换
  * 即谷歌、高德 转 百度
@@ -42,7 +41,6 @@ function gcj02tobd09(lng, lat) {
     var bd_lat = z * Math.sin(theta) + 0.006;
     return [bd_lng, bd_lat]
 }
-
 
 /**
  * WGS84转GCj02
@@ -92,10 +90,7 @@ function gcj02towgs84(lng, lat) {
         mglng = lng + dlng;
         return [lng * 2 - mglng, lat * 2 - mglat]
     }
-
-
 }
-
 
 function transformlat(lng, lat) {
     var ret = -100.0 + 2.0 * lng + 3.0 * lat + 0.2 * lat * lat + 0.1 * lng * lat + 0.2 * Math.sqrt(Math.abs(lng));
