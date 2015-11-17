@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://wandergis@github.com/wandergis/coordTransform.git"
+    "url": "git+https://wandergis@github.com/wandergis/coordtransform.git"
   },
   "keywords": [
     "coordinate",
@@ -20,7 +20,7 @@
   "author": "wandergis",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wandergis/coordTransform/issues"
+    "url": "https://github.com/wandergis/coordtransform/issues"
   },
-  "homepage": "https://github.com/wandergis/coordTransform#readme"
+  "homepage": "https://github.com/wandergis/coordtransform#readme"
 }
