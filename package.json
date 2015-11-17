@@ -1,7 +1,7 @@
 {
   "name": "coordtransform",
-  "version": "1.0.0",
-  "description": "'A module that can transform wgs84、bd09、gcj02 between each otherA tool module that can be converted between common coordinate systems'",
+  "version": "1.0.1",
+  "description": "A tool module that can be converted between common coordinate systems,if you are chinese maybe you will like it!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +18,7 @@
     "transform"
   ],
   "author": "wandergis",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/wandergis/coordtransform/issues"
   },
