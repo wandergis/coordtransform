@@ -1,6 +1,4 @@
-# coordTransform
-
-turf-translate
+# coordtransform 坐标转换
 =========
 一个提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换的工具模块
 
@@ -71,5 +69,6 @@ console.log(gcj02towgs84);
 </body>
 </html>
 ```
+****
 ### sometipes
 对于做GIS的人来说，底图对我们还是很重要的，有时候看国外的底图很好看，换上之后发现坐标位置全部不对，因此写了这个包帮助大家完成坐标的转换，也准备写成一个leaflet的扩展，方便大家的使用，喜欢的童鞋请star，O(∩_∩)O
