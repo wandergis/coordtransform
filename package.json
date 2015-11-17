@@ -1,0 +1,26 @@
+{
+  "name": "coordtransform",
+  "version": "1.0.0",
+  "description": "'A module that can transform wgs84、bd09、gcj02 between each otherA tool module that can be converted between common coordinate systems'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://wandergis@github.com/wandergis/coordTransform.git"
+  },
+  "keywords": [
+    "coordinate",
+    "wgs84",
+    "bd09",
+    "gcj02",
+    "transform"
+  ],
+  "author": "wandergis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wandergis/coordTransform/issues"
+  },
+  "homepage": "https://github.com/wandergis/coordTransform#readme"
+}
