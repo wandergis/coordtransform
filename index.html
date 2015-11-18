@@ -31,9 +31,24 @@
           <h1>
 <a id="coordtransform-坐标转换" class="anchor" href="#coordtransform-%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2" aria-hidden="true"><span class="octicon octicon-link"></span></a>coordtransform 坐标转换</h1>
 
-<h1></h1>
+<hr>
 
-<p>一个提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换的工具模块</p>
+<p>一个提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换的工具模块（另外还提供了python版本的代码<a href="https://github.com/wandergis/coordTransform_py%EF%BC%89">https://github.com/wandergis/coordTransform_py）</a></p>
+
+<hr>
+
+<h1>
+<a id="支持node浏览器amd方式和直接引用方式" class="anchor" href="#%E6%94%AF%E6%8C%81node%E6%B5%8F%E8%A7%88%E5%99%A8amd%E6%96%B9%E5%BC%8F%E5%92%8C%E7%9B%B4%E6%8E%A5%E5%BC%95%E7%94%A8%E6%96%B9%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>支持node、浏览器（AMD方式和直接引用方式）</strong>
+</h1>
+
+<ul>
+<li>GitHub地址：<a href="https://github.com/wandergis/coordtransform">https://github.com/wandergis/coordtransform</a>
+</li>
+<li>npm地址：<a href="https://www.npmjs.com/package/coordtransform">https://www.npmjs.com/package/coordtransform</a>
+</li>
+<li>项目主页：<a href="http://wandergis.github.io/coordtransform/">http://wandergis.github.io/coordtransform/</a>
+</li>
+</ul>
 
 <h3>
 <a id="安装install" class="anchor" href="#%E5%AE%89%E8%A3%85install" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装（install）</h3>
@@ -44,9 +59,7 @@
 <h3>
 <a id="示例用法exampleusage" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E7%94%A8%E6%B3%95exampleusage" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例用法（Example&amp;Usage）</h3>
 
-<ol>
-<li>NodeJs用法</li>
-</ol>
+<p>1 NodeJs用法</p>
 
 <pre><code>//国测局坐标(火星坐标,比如高德地图在用),百度坐标,wgs84坐标(谷歌国外以及绝大部分国外在线地图使用的坐标)
 var coordtransform=require('coordtransform');
@@ -69,10 +82,8 @@ console.log(gcj02towgs84);
 //gcj02towgs84:  [ 116.39775550083061, 39.91359571849836 ]
 </code></pre>
 
-<ol>
-<li>浏览器用法
-直接引用目录内的index.js，会有一个coordtransform的全局对象暴露出来，也支持用AMD加载器加载</li>
-</ol>
+<p>2 浏览器用法
+直接引用目录内的index.js，会有一个coordtransform的全局对象暴露出来，也支持用AMD加载器加载</p>
 
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
