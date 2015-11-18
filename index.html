@@ -37,9 +37,9 @@
 
 <hr>
 
-<h1>
+<h2>
 <a id="支持node浏览器amd方式和直接引用方式" class="anchor" href="#%E6%94%AF%E6%8C%81node%E6%B5%8F%E8%A7%88%E5%99%A8amd%E6%96%B9%E5%BC%8F%E5%92%8C%E7%9B%B4%E6%8E%A5%E5%BC%95%E7%94%A8%E6%96%B9%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>支持node、浏览器（AMD方式和直接引用方式）</strong>
-</h1>
+</h2>
 
 <ul>
 <li>GitHub地址：<a href="https://github.com/wandergis/coordtransform">https://github.com/wandergis/coordtransform</a>
@@ -49,6 +49,76 @@
 <li>项目主页：<a href="http://wandergis.github.io/coordtransform/">http://wandergis.github.io/coordtransform/</a>
 </li>
 </ul>
+
+<h2>
+<a id="为什么写这个模块" class="anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E8%BF%99%E4%B8%AA%E6%A8%A1%E5%9D%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>为什么写这个模块</h2>
+
+<p>随着移动互联网的兴起，几乎每一个app都会去收集用户位置，如果恰好你在处理与地理定位相关的代码，并且不了解地理坐标系的话，肯定要被我大天朝各种坐标系搞晕。写这个模块的目的也是因为项目中app获取的坐标是百度sdk获取的，在做webgis可视化的时候各种偏，各种坐标不对，当时的心情就是下面这个图片。</p>
+
+<p><img src="http://7xocdq.com1.z0.glb.clouddn.com/image/4/d5/d3b841ab56b58fde3106b218c7504.png" alt="image"></p>
+
+<h2>
+<a id="当前互联网地图的坐标系现状" class="anchor" href="#%E5%BD%93%E5%89%8D%E4%BA%92%E8%81%94%E7%BD%91%E5%9C%B0%E5%9B%BE%E7%9A%84%E5%9D%90%E6%A0%87%E7%B3%BB%E7%8E%B0%E7%8A%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>当前互联网地图的坐标系现状</h2>
+
+<h3>
+<a id="地球坐标-wgs84" class="anchor" href="#%E5%9C%B0%E7%90%83%E5%9D%90%E6%A0%87-wgs84" aria-hidden="true"><span class="octicon octicon-link"></span></a>地球坐标 (WGS84)</h3>
+
+<ul>
+<li>国际标准，从 GPS 设备中取出的数据的坐标系</li>
+<li>国际地图提供商使用的坐标系</li>
+</ul>
+
+<h3>
+<a id="火星坐标-gcj-02也叫国测局坐标系" class="anchor" href="#%E7%81%AB%E6%98%9F%E5%9D%90%E6%A0%87-gcj-02%E4%B9%9F%E5%8F%AB%E5%9B%BD%E6%B5%8B%E5%B1%80%E5%9D%90%E6%A0%87%E7%B3%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>火星坐标 (GCJ-02)也叫国测局坐标系</h3>
+
+<ul>
+<li>中国标准，从国行移动设备中定位获取的坐标数据使用这个坐标系</li>
+<li>国家规定： 国内出版的各种地图系统（包括电子形式），必须至少采用GCJ-02对地理位置进行首次加密。</li>
+</ul>
+
+<h3>
+<a id="百度坐标-bd-09" class="anchor" href="#%E7%99%BE%E5%BA%A6%E5%9D%90%E6%A0%87-bd-09" aria-hidden="true"><span class="octicon octicon-link"></span></a>百度坐标 (BD-09)</h3>
+
+<ul>
+<li>百度标准，百度 SDK，百度地图，Geocoding 使用</li>
+<li>(本来就乱了，百度又在火星坐标上来个二次加密)</li>
+</ul>
+
+<h2>
+<a id="开发过程需要注意的事" class="anchor" href="#%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>开发过程需要注意的事</h2>
+
+<ul>
+<li>
+<p>从设备获取经纬度（GPS）坐标</p>
+
+<pre><code>    如果使用的是百度sdk那么可以获得百度坐标（bd09）或者火星坐标（GCJ02),默认是bd09
+    如果使用的是ios的原生定位库，那么获得的坐标是WGS84
+    如果使用的是高德sdk,那么获取的坐标是GCJ02
+</code></pre>
+</li>
+<li>
+<p>互联网在线地图使用的坐标系</p>
+
+<pre><code>火星坐标系：
+        iOS 地图（其实是高德）
+        Gogole地图
+        搜搜、阿里云、高德地图
+百度坐标系：
+        当然只有百度地图
+WGS84坐标系：
+        国际标准，谷歌国外地图、osm地图等国外的地图一般都是这个
+</code></pre>
+
+<h1>
+<a id="举个栗子" class="anchor" href="#%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>举个栗子</h1>
+
+<p>笔者所在的公司app使用的是百度的sdk,需要对定位坐标做web可视化效果，百度地图提供的js api满足不了需求，选用leaflet来做可视化，这里要说到百度地图了，它使用的坐标系和切图的原点都不一致，并且其加偏还是非线性的，因此无法利用常用的加载方法去加载，放弃使用它的底图，选用了符合标准的高德底图，高德底图使用的是国测局坐标也就是GCJ02坐标系，如果简单的将app获取的经纬度叠加上去，就有可能你本来在百度大厦的位置就显示在西二旗地铁站了甚至更远，因此需要将bd09转成gcj02坐标系，这个时候这个库就有了用武之地，对点批量转换再加载到底图上，就可以让点显示在本应该出现的位置。</p>
+
+<p>另外如果你拿到了一些WGS84的坐标，想加载到各种底图上就可以根据这个库在底图坐标系和你的数据坐标系之间进行转换。希望对大家有用吧。</p>
+</li>
+</ul>
+
+<hr>
 
 <h3>
 <a id="安装install" class="anchor" href="#%E5%AE%89%E8%A3%85install" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装（install）</h3>
