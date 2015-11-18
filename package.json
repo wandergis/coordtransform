@@ -1,6 +1,6 @@
 {
   "name": "coordtransform",
-  "version": "1.0.1",
+  "version": "2.0.1",
   "description": "A tool module that can be converted between common coordinate systems,if you are chinese maybe you will like it!",
   "main": "index.js",
   "scripts": {
