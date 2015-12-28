@@ -1,7 +1,7 @@
 {
   "name": "coordtransform",
   "version": "2.0.1",
-  "description": "A tool module that can be converted between common coordinate systems,if you are chinese maybe you will like it!",
+  "description": "A common coordinate systems conversion module!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
