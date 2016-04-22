@@ -1,4 +1,4 @@
-package com.lt.util.test;
+package me.demo.util.geo.test;
 
 import me.demo.util.geo.CoordinateTransformUtil;
 
