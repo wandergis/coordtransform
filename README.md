@@ -1,6 +1,6 @@
 # coordtransform 坐标转换
 ****
-一个提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换的工具模块**另外还提供了python版本的代码https://github.com/wandergis/coordTransform_py**
+一个提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换的工具模块。另外还提供了python版本的代码https://github.com/wandergis/coordTransform_py
 ****
 ## **支持node、浏览器（AMD方式和直接引用方式）**
 - GitHub地址：https://github.com/wandergis/coordtransform
@@ -34,8 +34,8 @@
 
 		火星坐标系：
     			iOS 地图（其实是高德）
-    			Google 地图
-    			搜搜、阿里云、高德地图
+    			Google国内地图（.cn域名下）
+    			搜搜、阿里云、高德地图、腾讯
 		百度坐标系：
     			当然只有百度地图
 		WGS84坐标系：
