@@ -4,7 +4,7 @@
 
 python版本：https://github.com/wandergis/coordTransform_py
 
-命令行版本：https://github.com/wandergis/coordtransform
+命令行版本：https://github.com/wandergis/coordtransform-cli
 ****
 ## **支持node、浏览器（AMD方式和直接引用方式）**
 - GitHub地址：https://github.com/wandergis/coordtransform
