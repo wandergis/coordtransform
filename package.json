@@ -1,10 +1,10 @@
 {
   "name": "coordtransform",
-  "version": "2.0.1",
+  "version": "2.1.1",
   "description": "A common coordinate systems conversion module!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/app.js"
   },
   "repository": {
     "type": "git",
