@@ -1,5 +1,5 @@
 /**
- * Created by WangMing on 15/11/17.
+ * Created by wandergis on 15/11/17.
  */
 //国测局坐标(火星坐标,比如高德地图在用),百度坐标,wgs84坐标(谷歌国外以及绝大部分国外在线地图使用的坐标)
 var coordtransform = require('../index');
