@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>坐标转换JS使用例子</title>
+</head>
+<body>
+	<h1>提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换，会有偏差，但是偏差在可接受范围之内</h1>
+	<h1>结果请在控制台查看（Results please view the console）</h1>
+
+</body>
+<script type="text/javascript" src="../disk/CoordinateTransform.js"></script>
+<script type="text/javascript">
+
+	//百度地图 BD09 坐标 转 WGS84 
+	var lngLat_wgs84 = CoordinateTransform.transformBD09ToWGS84(120.644049,31.285887);
+	console.log(lngLat_wgs84);
+
+	//WGS84  坐标 转 百度地图 BD09 
+	var lngLat_bd09 = CoordinateTransform.transformWGS84ToBD09(lngLat_wgs84[0],lngLat_wgs84[1]);
+	console.log(lngLat_bd09);
+
+	//火星坐标（GCJ02） 坐标 转 WGS84 
+	lngLat_wgs84 = CoordinateTransform.transformGCJ02ToWGS84(120.644049,31.285887);
+	console.log(lngLat_wgs84);
+
+	//WGS84 转  火星坐标（GCJ02）
+	var lngLat_gcj02 = CoordinateTransform.transformWGS84ToGCJ02(lngLat_wgs84[0],lngLat_wgs84[1]);
+	console.log(lngLat_gcj02);
+
+	//百度地图 BD09 坐标 转 火星坐标（GCJ02） 
+	lngLat_gcj02 = CoordinateTransform.transformBD09ToGCJ02(120.644049,31.285887);
+	console.log(lngLat_gcj02);
+
+	//火星坐标（GCJ02） 坐标 转 百度地图 BD09
+	lngLat_bd09 = CoordinateTransform.transformGCJ02ToBD09(lngLat_gcj02[0],lngLat_gcj02[1]);
+	console.log(lngLat_bd09);
+</script>
+</html>
