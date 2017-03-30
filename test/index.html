@@ -26,6 +26,27 @@
     //gcj02tobd09:   [ 116.41036949371029, 39.92133699351021 ]
     //wgs84togcj02:  [ 116.41024449916938, 39.91640428150164 ]
     //gcj02towgs84:  [ 116.39775550083061, 39.91359571849836 ]
+    
+console.log(convertBaiduToWGS84(118.31309502519457,32.276140342217744));
+console.log(convertWGS84ToBaidu(118.3013077,32.2719040));
+    
+function convertWGS84ToBaidu(x,y){
+    //wgs84转国测局坐标
+    var gcj = coordtransform.wgs84togcj02(x,y);
+     //国测局坐标转百度经纬度坐标
+    var baidu = coordtransform.gcj02tobd09(gcj[0], gcj[1]);
+    console.log("WGS84 ConvertTo Baidu",x+" "+y+" --> "+ baidu[0]+" , "+baidu[1]);
+    return baidu;
+}
+
+function convertBaiduToWGS84(x,y){
+  //百度经纬度坐标转国测局坐标
+  var gcj = coordtransform.bd09togcj02(x,y);
+  //国测局坐标转wgs84坐标
+  var wgs84 = coordtransform.gcj02towgs84(gcj[0], gcj[1]);
+  console.log("Baidu ConvertTo WGS84",x+" "+y+" --> "+ wgs84[0]+" , "+wgs84[1]);
+  return wgs84;
+}
 </script>
 </body>
 </html>
