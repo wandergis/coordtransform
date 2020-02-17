@@ -177,6 +177,9 @@
       return gcj02towgs84(gcj02[0], gcj02[1])
     },
     wgs84ToBd09: function (lng, lat) {
+      if (!isInChina(lng, lat)) {
+        return [lng, lat]
+      }
       var gcj02 = wgs84togcj02(lng, lat)
       return gcj02tobd09(gcj02[0], gcj02[1])
     }
