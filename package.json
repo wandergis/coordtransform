@@ -3,6 +3,7 @@
   "version": "2.1.2",
   "description": "A common coordinate systems conversion module!",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "node test/app.js"
   },
