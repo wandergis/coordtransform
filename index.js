@@ -111,6 +111,31 @@
     }
   };
 
+   /**
+   * WGS84 转换为 bd09
+   * @param point {lng, lat}
+   * @returns {*[]}
+   */
+	var gps2bd = function gps2bd(point)
+	{
+		var tmp = wgs84togcj02(point.lng, point.lat);
+		var r = gcj02tobd09(tmp[0],tmp[1]);
+		return {'lng':r[0],'lat':r[1]};
+	}
+  
+   /**
+   * bd09 转换为 WGS84
+   * @param point {lng, lat}
+   * @returns {*[]}
+   */
+	var bd2gps = function bd2gps(point)
+	{
+		var tmp = bd09togcj02(point.lng, point.lat);
+		var r = gcj02towgs84(tmp[0],tmp[1]);
+		return {'lng':r[0],'lat':r[1]};
+	}
+  
+
   var transformlat = function transformlat(lng, lat) {
     var lat = +lat;
     var lng = +lng;
@@ -148,6 +173,8 @@
     bd09togcj02: bd09togcj02,
     gcj02tobd09: gcj02tobd09,
     wgs84togcj02: wgs84togcj02,
-    gcj02towgs84: gcj02towgs84
+    gcj02towgs84: gcj02towgs84,
+	  gps2bd: gps2bd,
+	  bd2gps: bd2gps
   }
 }));
