@@ -1,4 +1,4 @@
-# forked from 坐标转换
+# GPSTrans 坐标转换
 ****
 基于 coordtransform ， 一个提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换的工具模块。
 
