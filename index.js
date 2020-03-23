@@ -1,8 +1,8 @@
 /**
  * Created by Wandergis on 2015/7/8.
- * 提供了百度坐标（BD09）、国测局坐标（火星坐标，GCJ02）、和WGS84坐标系之间的转换
+ * 提供了百度坐标（BD-09）、国测局坐标（火星坐标，GCJ-02）、和 WGS-84 坐标系之间的转换
  */
-//UMD魔法代码
+// UMD 魔法代码
 // if the module has no dependencies, the above pattern can be simplified to
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -18,22 +18,22 @@
     root.coordtransform = factory();
   }
 }(this, function () {
-  //定义一些常量
+  // 定义一些常量
   var x_PI = 3.14159265358979324 * 3000.0 / 180.0;
   var PI = 3.1415926535897932384626;
   var a = 6378245.0;
   var ee = 0.00669342162296594323;
   /**
-   * 百度坐标系 (BD-09) 与 火星坐标系 (GCJ-02)的转换
+   * 百度坐标系 (BD-09) 与 火星坐标系 (GCJ-02) 的转换
    * 即 百度 转 谷歌、高德
-   * @param bd_lon
+   * @param bd_lng
    * @param bd_lat
    * @returns {*[]}
    */
-  var bd09togcj02 = function bd09togcj02(bd_lon, bd_lat) {
-    var bd_lon = +bd_lon;
+  var bd09togcj02 = function bd09togcj02(bd_lng, bd_lat) {
+    var bd_lng = +bd_lng;
     var bd_lat = +bd_lat;
-    var x = bd_lon - 0.0065;
+    var x = bd_lng - 0.0065;
     var y = bd_lat - 0.006;
     var z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * x_PI);
     var theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * x_PI);
@@ -44,7 +44,7 @@
 
   /**
    * 火星坐标系 (GCJ-02) 与百度坐标系 (BD-09) 的转换
-   * 即谷歌、高德 转 百度
+   * 即 谷歌、高德 转 百度
    * @param lng
    * @param lat
    * @returns {*[]}
@@ -60,7 +60,7 @@
   };
 
   /**
-   * WGS84转GCj02
+   * WGS-84 转 GCJ-02
    * @param lng
    * @param lat
    * @returns {*[]}
@@ -86,7 +86,7 @@
   };
 
   /**
-   * GCJ02 转换为 WGS84
+   * GCJ-02 转换为 WGS-84
    * @param lng
    * @param lat
    * @returns {*[]}
@@ -140,7 +140,7 @@
   var out_of_china = function out_of_china(lng, lat) {
     var lat = +lat;
     var lng = +lng;
-    // 纬度3.86~53.55,经度73.66~135.05 
+    // 纬度 3.86~53.55, 经度 73.66~135.05 
     return !(lng > 73.66 && lng < 135.05 && lat > 3.86 && lat < 53.55);
   };
 
