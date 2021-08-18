@@ -9,6 +9,12 @@ python版本：https://github.com/wandergis/coordTransform_py
 go语言社区版本：https://github.com/qichengzx/coordtransform
 
 ****
+
+### 喜欢请扫码
+关注DataV数据可视化公众号，获取更多知识
+
+<img src="https://img.alicdn.com/imgextra/i4/O1CN01pG1cIy1iLPnvfYhKm_!!6000000004396-0-tps-1280-1280.jpg" width="300px" height="300px" alt="DataV数据可视化公众号二维码">
+
 ## **支持node、浏览器（AMD方式和直接引用方式）**
 - GitHub地址：https://github.com/wandergis/coordtransform
 - npm地址：https://www.npmjs.com/package/coordtransform
@@ -132,7 +138,4 @@ console.log(gcj02towgs84);
 ### sometipes
 对于做GIS的人来说，底图对我们还是很重要的，有时候看国外的底图很好看，换上之后发现坐标位置全部不对，因此写了这个包帮助大家完成坐标的转换，方便大家的使用，喜欢的童鞋请star。
 
-### 广告时间
-关注DataV数据可视化公众号，获取更多知识
 
-<img src="https://img.alicdn.com/imgextra/i4/O1CN01pG1cIy1iLPnvfYhKm_!!6000000004396-0-tps-1280-1280.jpg" width="300px" height="300px" alt="DataV数据可视化公众号二维码">
