@@ -139,7 +139,7 @@ console.log(gcj02towgs84);
 对于做GIS的人来说，底图对我们还是很重要的，有时候看国外的底图很好看，换上之后发现坐标位置全部不对，因此写了这个包帮助大家完成坐标的转换，方便大家的使用，喜欢的童鞋请star。
 
 ### 推荐
-[基于 WebGL 的开源大规模地理空间数据可视分析引擎](https://github.com/antvis/l7)
+[基于 WebGL 的开源大规模地理空间数据可视分析引擎](https://github.com/antvis/l7) 喜欢的童鞋请 star。
 
 ![地图 L7](https://camo.githubusercontent.com/9dce91a0264bc3f6eb0b54c4cb7b4911555af7206db6eb9cb9bd9a9d000e8de8/68747470733a2f2f67772e616c697061796f626a656374732e636f6d2f6d646e2f726d735f3835356261622f616674732f696d672f412a532d373351704f386430594141414141414141414141426b4152516e4151)
 
