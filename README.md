@@ -8,6 +8,8 @@ python版本：https://github.com/wandergis/coordTransform_py
 
 go语言社区版本：https://github.com/qichengzx/coordtransform
 
+C#语言代码链接: [C# CoordinateConvert](https://github.com/joesdu/EasilyNET/blob/main/src/EasilyNET.Core/Coordinate/CoordinateConvert.cs)
+
 ****
 
 ### 喜欢请扫码
