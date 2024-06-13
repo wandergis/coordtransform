@@ -1,6 +1,6 @@
 {
   "name": "coordtransform",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A common coordinate systems conversion module!",
   "main": "index.js",
   "types": "index.d.ts",

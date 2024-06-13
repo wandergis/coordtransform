@@ -170,10 +170,10 @@
 
   return {
     // 原始的转换方法
-    rawBd09ToGcj02: bd09togcj02,
-    rawGcj02ToBd09: gcj02tobd09,
-    rawWgs84ToGcj02: wgs84togcj02,
-    rawGcj02ToWgs84: gcj02towgs84,
+    bd09ToGcj02Raw: bd09togcj02,
+    gcj02ToBd09Raw: gcj02tobd09,
+    wgs84ToGcj02Raw: wgs84togcj02,
+    gcj02ToWgs84Raw: gcj02towgs84,
     // 判断了中国范围的转换方法
     bd09ToGcj02: bd09togcj02,
     gcj02ToBd09: gcj02tobd09,

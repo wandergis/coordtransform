@@ -1,12 +1,12 @@
 export type LngLatTuple = [number, number]
 /** 原始的 BD09 => Gcj02 */
-export declare function rawBd09ToGcj02(lng: number, lat: number): LngLatTuple
+export declare function bd09ToGcj02Raw(lng: number, lat: number): LngLatTuple
 /** 原始的 Gcj02 => Bd09 */
-export declare function rawGcj02ToBd09(lng: number, lat: number): LngLatTuple
+export declare function gcj02ToBd09Raw(lng: number, lat: number): LngLatTuple
 /** 原始的 Wgs84 => Gcj02 */
-export declare function rawWgs84ToGcj02(lng: number, lat: number): LngLatTuple
+export declare function wgs84ToGcj02Raw(lng: number, lat: number): LngLatTuple
 /** 原始的 Gcj02 => Wgs84 */
-export declare function rawGcj02ToWgs84(lng: number, lat: number): LngLatTuple
+export declare function gcj02ToWgs84Raw(lng: number, lat: number): LngLatTuple
 
 /** BD09 => GCJ02 */
 export declare function bd09ToGcj02(lng: number, lat: number): LngLatTuple
