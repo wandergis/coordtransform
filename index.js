@@ -38,7 +38,7 @@
     return this.west <= lon && this.east >= lon && this.north >= lat && this.south <= lat;
   }
 
-  //China region - raw data
+  // China region - raw data
   var region = [
     new Rectangle(79.446200, 49.220400, 96.330000, 42.889900),
     new Rectangle(109.687200, 54.141500, 135.000200, 39.374200),
@@ -47,7 +47,7 @@
     new Rectangle(97.025300, 29.529700, 124.367395, 20.414096),
     new Rectangle(107.975793, 20.414096, 111.744104, 17.871542)
   ];
-  //China excluded region - raw data
+  // China excluded region - raw data
   var exclude = [
     new Rectangle(119.921265, 25.398623, 122.497559, 21.785006),
     new Rectangle(101.865200, 22.284000, 106.665000, 20.098800),
@@ -56,16 +56,26 @@
     new Rectangle(127.456800, 55.817500, 137.022700, 49.557400),
     new Rectangle(131.266200, 44.892200, 137.022700, 42.569200),
     new Rectangle(73.124600, 35.398637, 77.948114, 29.529700),
+  ]
+  // China excluded region 2, Hongkong etc.
+  var EXCLUDE_REGIN_2 = [
     new Rectangle(114.505238, 22.138258, 113.845000, 22.428903),
     new Rectangle(113.97000, 22.507833, 114.450000, 22.428903),
   ];
 
-  function isInChina(lon, lat) {
+  function isInChina(lon, lat, excludeRegin2 = true) {
     for (var i = 0; i < region.length; i++) {
       if (region[i].contain(lon, lat)) {
         for (var j = 0; j < exclude.length; j++) {
           if (exclude[j].contain(lon, lat)) {
             return false;
+          }
+        }
+        if (excludeRegin2) {
+          for (var j = 0; j < EXCLUDE_REGIN_2.length; j++) {
+            if (EXCLUDE_REGIN_2[j].contain(lon, lat)) {
+              return false;
+            }
           }
         }
         return true;
@@ -113,9 +123,7 @@
    * @returns {*[]}
    */
   function wgs84togcj02(lng, lat) {
-    if (!isInChina(lng, lat)) {
-      return [lng, lat]
-    }
+
     return transform(lng, lat)
   };
 
@@ -126,9 +134,6 @@
    * @returns {*[]}
    */
   function gcj02towgs84(lng, lat) {
-    if (!isInChina(lng, lat)) {
-      return [lng, lat]
-    }
     var out = transform(lng, lat)
     return [lng * 2 - out[0], lat * 2 - out[1]]
   };
@@ -164,25 +169,35 @@
   };
 
   return {
-    // 向前兼容
-    bd09togcj02: bd09togcj02,
-    gcj02tobd09: gcj02tobd09,
-    wgs84togcj02: wgs84togcj02,
-    gcj02towgs84: gcj02towgs84,
-    // 小驼峰命名风格
+    // 原始的转换方法
+    rawBd09ToGcj02: bd09togcj02,
+    rawGcj02ToBd09: gcj02tobd09,
+    rawWgs84ToGcj02: wgs84togcj02,
+    rawGcj02ToWgs84: gcj02towgs84,
+    // 判断了中国范围的转换方法
     bd09ToGcj02: bd09togcj02,
     gcj02ToBd09: gcj02tobd09,
-    wgs84ToGcj02: wgs84togcj02,
-    gcj02ToWgs84: gcj02towgs84,
-    bd09ToWgs84: function (lng, lat) {
+    wgs84ToGcj02: function (lng, lat) {
       if (!isInChina(lng, lat)) {
+        return [lng, lat]
+      }
+      return wgs84togcj02(lng, lat)
+    },
+    gcj02ToWgs84: function (lng, lat) {
+      if (!isInChina(lng, lat)) {
+        return [lng, lat]
+      }
+      return gcj02towgs84(lng, lat)
+    },
+    bd09ToWgs84: function (lng, lat) {
+      if (!isInChina(lng, lat, false)) {
         return [lng, lat]
       }
       var gcj02 = bd09togcj02(lng, lat)
       return gcj02towgs84(gcj02[0], gcj02[1])
     },
     wgs84ToBd09: function (lng, lat) {
-      if (!isInChina(lng, lat)) {
+      if (!isInChina(lng, lat, false)) {
         return [lng, lat]
       }
       var gcj02 = wgs84togcj02(lng, lat)
