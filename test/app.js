@@ -15,6 +15,18 @@ console.log(bd09togcj02);
 console.log(gcj02tobd09);
 console.log(wgs84togcj02);
 console.log(gcj02towgs84);
+//百度经纬度坐标转国测局坐标
+bd09togcj02 = coordtransform.convert(116.404, 39.915,'bd09','gcj02');
+//国测局坐标转百度经纬度坐标
+gcj02tobd09 = coordtransform.convert(116.404, 39.915,'gcj02','bd09');
+//wgs84转国测局坐标
+wgs84togcj02 = coordtransform.convert(116.404, 39.915,'wgs84','gcj02');
+//国测局坐标转wgs84坐标
+gcj02towgs84 = coordtransform.convert(116.404, 39.915,'gcj02','wgs84');
+console.log(bd09togcj02);
+console.log(gcj02tobd09);
+console.log(wgs84togcj02);
+console.log(gcj02towgs84);
 //result
 //bd09togcj02:   [ 116.39762729119315, 39.90865673957631 ]
 //gcj02tobd09:   [ 116.41036949371029, 39.92133699351021 ]
