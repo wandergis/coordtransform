@@ -144,10 +144,52 @@
     return !(lng > 73.66 && lng < 135.05 && lat > 3.86 && lat < 53.55);
   };
 
+  /**
+   * 坐标系转换
+   * @param {number} lng 经度
+   * @param {number} lat 纬度
+   * @param {'wgs84'|'bd09'|'gcj02'} from 来源坐标系名称
+   * @param {'wgs84'|'bd09'|'gcj02'} to 输出坐标系名称
+   * @returns {[number,number]} [lng,lat]
+   */
+  function convert(lng, lat, from = 'gcj02', to = 'gcj02') {
+      let point = [lng, lat];
+      let arr = {
+          'wgs84': {
+              from: (lng, lat) => wgs84togcj02(lng, lat),
+              to: (lng, lat) => gcj02towgs84(lng, lat)
+          },
+          'bd09': {
+              from: (lng, lat) => bd09togcj02(lng, lat),
+              to: (lng, lat) => gcj02tobd09(lng, lat)
+          },
+          'gcj02': {
+              from: (lng, lat) => [lng, lat],
+              to: (lng, lat) => [lng, lat],
+          }
+      }
+      if (!arr[to]) {
+          console.error('错误的 to 坐标系：' + to);
+          return point;
+      }
+      if (!arr[from]) {
+          console.error('错误的 from 坐标系：' + from);
+          return point;
+      }
+
+      if (to == from) {
+          return point
+      }
+      let temp = arr[from].from(lng, lat);
+      temp = arr[to].to(temp[0], temp[1]);
+      return temp;
+  };
+
   return {
     bd09togcj02: bd09togcj02,
     gcj02tobd09: gcj02tobd09,
     wgs84togcj02: wgs84togcj02,
-    gcj02towgs84: gcj02towgs84
+    gcj02towgs84: gcj02towgs84,
+    convert:convert
   }
 }));
