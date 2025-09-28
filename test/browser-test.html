@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TypeScript Build Browser Test</title>
+</head>
+<body>
+<h1>TypeScript Build Browser Compatibility Test</h1>
+<p>Check the console for results (Press F12)</p>
+
+<!-- Test the original index.js for comparison -->
+<script src="../index.js"></script>
+<script>
+    console.log('=== Original index.js test ===');
+    var originalResult = coordtransform.bd09togcj02(116.404, 39.915);
+    console.log('Original bd09togcj02:', originalResult);
+</script>
+
+<!-- Test the TypeScript compiled UMD build -->
+<script src="../dist/index.js"></script>
+<script>
+    console.log('=== TypeScript compiled UMD test ===');
+    // The UMD module should be available as exports object
+    console.log('Compiled bd09togcj02:', bd09togcj02(116.404, 39.915));
+    console.log('All functions available:', {
+        bd09togcj02: typeof bd09togcj02,
+        gcj02tobd09: typeof gcj02tobd09,
+        wgs84togcj02: typeof wgs84togcj02,
+        gcj02towgs84: typeof gcj02towgs84
+    });
+</script>
+</body>
+</html>
