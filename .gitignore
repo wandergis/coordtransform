@@ -27,6 +27,9 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
+# TypeScript compiled test files
+test/compiled/
+
 # =========================
 # Operating System Files
 # =========================

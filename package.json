@@ -3,8 +3,25 @@
   "version": "2.1.2",
   "description": "A common coordinate systems conversion module!",
   "main": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "dist/"
+  ],
   "scripts": {
-    "test": "node test/app.js"
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "node test/app.js",
+    "test:ts": "npm run build && npx tsc test/typescript-test.ts --module commonjs --target es2015 --outDir test/compiled --moduleResolution node && node test/compiled/test/typescript-test.js",
+    "test:all": "npm test && npm run test:ts"
   },
   "repository": {
     "type": "git",
@@ -15,12 +32,20 @@
     "wgs84",
     "bd09",
     "gcj02",
-    "transform"
+    "transform",
+    "typescript"
   ],
   "author": "wandergis",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wandergis/coordtransform/issues"
   },
-  "homepage": "http://wandergis.github.io/coordtransform"
+  "homepage": "http://wandergis.github.io/coordtransform",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "typescript": "^5.9.2"
+  }
 }

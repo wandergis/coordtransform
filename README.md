@@ -83,6 +83,33 @@ go语言社区版本：https://github.com/qichengzx/coordtransform
 npm install coordtransform
 ```
 
+### TypeScript 用法 (TypeScript Usage)
+
+本库已完全支持 TypeScript，提供类型定义和完整的 IntelliSense 支持。
+
+#### ES6 模块导入 (ES6 Module Import)
+```typescript
+import { bd09togcj02, gcj02tobd09, wgs84togcj02, gcj02towgs84, Coordinate } from 'coordtransform';
+
+// 函数都返回 Coordinate 类型: [number, number]
+const result: Coordinate = bd09togcj02(116.404, 39.915);
+console.log(result); // [ 116.39762729119315, 39.90865673957631 ]
+```
+
+#### 默认导入 (Default Import)
+```typescript
+import coordtransform from 'coordtransform';
+
+const result = coordtransform.bd09togcj02(116.404, 39.915);
+console.log(result); // [ 116.39762729119315, 39.90865673957631 ]
+```
+
+#### CommonJS 用法 (CommonJS Usage)
+```typescript
+const { bd09togcj02, Coordinate } = require('coordtransform');
+// 或者
+const coordtransform = require('coordtransform');
+```
 
 ### 示例用法（Example&Usage）
 1 NodeJs用法

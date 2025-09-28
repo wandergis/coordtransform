@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TypeScript Build Browser Test</title>
+</head>
+<body>
+<h1>TypeScript Build Browser Compatibility Test</h1>
+<p>Check the console for results (Press F12)</p>
+
+<!-- Test the original index.js for comparison -->
+<script src="../index.js"></script>
+<script>
+    console.log('=== Original index.js test ===');
+    var originalResult = coordtransform.bd09togcj02(116.404, 39.915);
+    console.log('Original bd09togcj02:', originalResult);
+    console.log('Original coordtransform object:', coordtransform);
+</script>
+
+<!-- Test the TypeScript compiled UMD build -->
+<script src="../dist/index.js"></script>
+<script>
+    console.log('=== TypeScript compiled UMD test ===');
+    // Check what's available globally
+    console.log('Global coordtransform after TS build:', typeof coordtransform !== 'undefined' ? coordtransform : 'not found');
+    console.log('Window keys after load:', Object.keys(window).filter(k => k.includes('coord') || k.includes('bd09') || k.includes('gcj')));
+    
+    // Try accessing coordtransform global
+    if (typeof coordtransform !== 'undefined') {
+        console.log('Compiled bd09togcj02:', coordtransform.bd09togcj02(116.404, 39.915));
+    } else {
+        console.log('coordtransform global not available');
+    }
+</script>
+</body>
+</html>
